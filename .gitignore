@@ -3,3 +3,4 @@ __pycache__
 dist
 src/mitesh.egg-info
 src/mitesh/mitesh.egg-info
+.vscode
