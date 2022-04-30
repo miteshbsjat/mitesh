@@ -7,7 +7,7 @@ from os import environ, path, makedirs, chmod, stat, linesep
 from hashlib import sha256
 from stat import S_IEXEC
 from subprocess import Popen, PIPE, CalledProcessError
-from pprint import pprint
+
 
 class MiteSh:
     """
@@ -79,7 +79,7 @@ class MiteSh:
         self.command_hash = self.get_command_hash()
         try:
             self.command_file = self.check_and_create_command_file()
-            self.pipe = self.run()
+            self.pipe = self._run()
         except PermissionError as e:
             raise PermissionError(e)
         except Exception as e:
@@ -120,7 +120,7 @@ class MiteSh:
             raise PermissionError(e, f"Please check write permissions of file {command_file}")
 
 
-    def run(self):
+    def _run(self):
         return Popen([str(self.command_file)], stdout=PIPE, universal_newlines=True)
 
 
@@ -160,5 +160,4 @@ if __name__ == '__main__':
         print(f"Execution Error: {e}")
     except Exception as e:
         print(f"Some other exception occurred: {e}")
-
 
