@@ -1,6 +1,6 @@
 import unittest
 from subprocess import CalledProcessError
-from mitesh.mitesh import MiteSh
+from mitesh import MiteSh
 from os import environ
 
 

@@ -6,3 +6,4 @@ src/mitesh/mitesh.egg-info
 .vscode
 build/**
 env/**
+mitesh.egg-info
