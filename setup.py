@@ -1,18 +1,30 @@
 import setuptools
+from setuptools.command.test import test as TestCommand
 # from .version import __version__
 with open("README.rst", "r", encoding="utf-8") as fh:
     long_description = fh.read()
-with open("mitesh/version.py", "r", encoding="utf-8") as fh:
-    version = fh.read().split('=')[1].strip().replace("'", '')
+exec(open('mitesh/version.py').read())
+
+
+class Run_TestSuite(TestCommand):
+    def run_tests(self):
+        import os
+        import sys
+
+        py_version = sys.version_info[0]
+        print('Python version from setup.py is', py_version)
+        run_string = "python3 -m unittest tests/test_mitesh.py"
+        os.system(run_string)
+
 
 setuptools.setup(
     name='mitesh',                                  # should match the package folder
     packages=['mitesh'],                            # should match the package folder
-    version=version,                                # important for updates
+    version=__version__,                            # important for updates
     license='MIT',                                  # should match your chosen license
-    description='Testing installation of Package',
-    long_description='Modestly Integrated To Every SHell',  # loads your README.md
-    long_description_content_type="text/x-rst",     # README.md is of type 'markdown'
+    description='Modestly Integrated To Every SHell',
+    long_description=long_description,              # loads your README.md
+    long_description_content_type="text/x-rst",     # README.rst is of type 'x-rst'
     author='Mitesh Singh Jat',
     author_email="@".join(["mitesh.singh.jat", "gmail" + ".com"]),
     url='https://github.com/miteshbsjat/mitesh', 
@@ -35,4 +47,5 @@ setuptools.setup(
     ],
     
     download_url="https://github.com/miteshbsjat/mitesh/archive/refs/tags/0.0.0.tar.gz",
+    cmdclass={'test': Run_TestSuite},
 )
