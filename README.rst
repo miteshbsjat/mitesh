@@ -1,6 +1,9 @@
 MITESH => Modestly Integrated To Every SHell
 ============================================
 
+.. |MiteSh| image:: images/Sun_Shell.png
+  :width: 360
+  :alt: Modestly Integrated To Every SHell
 
 Introduction
 ************
@@ -28,7 +31,7 @@ MiteSh has been tested with Python 3.6+ and PyPy3.
 Supported Operating Systems
 ***************************
 
-``MiteSh`` should on all \*NIX Operating Systems. Like:
+``MiteSh`` should run on all \*NIX Operating Systems. Like:
 
 - GNU/Linux
 - UNIX \*BSD
@@ -43,7 +46,7 @@ Run Hello World
 
 .. code-block:: python
 
-    >>> from mitesh.mitesh import MiteSh
+    >>> from mitesh import MiteSh
     >>> for line in MiteSh("echo Hello World").execute():
     ...     print(line)
     ... 
@@ -63,6 +66,40 @@ Get Number of CPU Cores in Linux
 The above command was run on ``Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz``
 
 
+Using Different Shell
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    >>> for line in MiteSh("echo hello", sh_type="sh").execute():
+    ...     print(line)
+    ... 
+    hello
+    >>> for line in MiteSh("ps", sh_type="sh").execute():
+    ...     print(line)
+    ... 
+        PID TTY          TIME CMD
+    51839 pts/5    00:00:00 bash
+    91559 pts/5    00:00:00 python3
+    102811 pts/5    00:00:00 sh
+    102812 pts/5    00:00:00 ps
+    >>> for line in MiteSh("ps", sh_type="zsh").execute():
+    ...     print(line)
+    ... 
+        PID TTY          TIME CMD
+    51839 pts/5    00:00:00 bash
+    91559 pts/5    00:00:00 python3
+    103035 pts/5    00:00:00 zsh
+    103036 pts/5    00:00:00 ps
+
+
+Acknowledgement
+***************
+
+I would like to dedicate this package to my Mentor CNB and my Friend `Venkatesh Pitta <https://github.com/venkateshpitta>`_, without their inspiration and support, this would not be possible.
+Also, I would like to thank God, my Teachers, my Parents, my Wife and Daughter to stand with me all the times. 
+
+
 Contributing
 ************
 
@@ -78,10 +115,3 @@ extensions: Contributions to ``MiteSh`` are welcome! Here's how to get started:
    as expected
 4. Send a pull request and bug the maintainer until it gets merged and
    published 
-
-
-
-
-
-
-

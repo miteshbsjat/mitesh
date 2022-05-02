@@ -1,5 +1,6 @@
 MITESH =\> Modestly Integrated To Every SHell
 =============================================
+![MiteSh](images/Sun_Shell.png "Modestly Integrated To Every SHell")
 
 Introduction
 ------------
@@ -31,7 +32,7 @@ MiteSh has been tested with Python 3.6+ and PyPy3.
 Supported Operating Systems
 ---------------------------
 
-`MiteSh` should on all \*NIX Operating Systems. Like:
+`MiteSh` should run on all \*NIX Operating Systems. Like:
 
 -   GNU/Linux
 -   UNIX \*BSD
@@ -42,8 +43,8 @@ Examples
 
 ### Run Hello World
 
-``` {.python}
->>> from mitesh.mitesh import MiteSh
+``` python
+>>> from mitesh import MiteSh
 >>> for line in MiteSh("echo Hello World").execute():
 ...     print(line)
 ... 
@@ -52,7 +53,7 @@ Hello World
 
 ### Get Number of CPU Cores in Linux
 
-``` {.python}
+``` python
 >>> for line in MiteSh("cat /proc/cpuinfo | grep \"cpu cores\" | uniq | cut -d: -f2 | sed 's/ //g'").execute():
 ...     print(line)
 ... 
@@ -60,6 +61,40 @@ Hello World
 ```
 
 The above command was run on `Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz`
+
+### Using Different Shell
+
+``` python
+>>> for line in MiteSh("echo hello", sh_type="sh").execute():
+...     print(line)
+... 
+hello
+>>> for line in MiteSh("ps", sh_type="sh").execute():
+...     print(line)
+... 
+    PID TTY          TIME CMD
+51839 pts/5    00:00:00 bash
+91559 pts/5    00:00:00 python3
+102811 pts/5    00:00:00 sh
+102812 pts/5    00:00:00 ps
+>>> for line in MiteSh("ps", sh_type="zsh").execute():
+...     print(line)
+... 
+    PID TTY          TIME CMD
+51839 pts/5    00:00:00 bash
+91559 pts/5    00:00:00 python3
+103035 pts/5    00:00:00 zsh
+103036 pts/5    00:00:00 ps
+```
+
+Acknowledgement
+---------------
+
+I would like to dedicate this package to my Mentor CNB and my Friend
+[Venkatesh Pitta](https://github.com/venkateshpitta), without their
+inspiration and support, this would not be possible. Also, I would like
+to thank God, my Teachers, my Parents, my Wife and Daughter to stand
+with me all the times.
 
 Contributing
 ------------
