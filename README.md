@@ -8,7 +8,8 @@ Introduction
 `MiteSh` is a very simple wrapper over
 [subprocess](https://docs.python.org/3/library/subprocess.html) :) . It
 enables us to run any POSIX shell (one-liner) in python and provides
-output line by line through generator.
+output line by line through generator. This is inspired by perl\'s
+backtick operator \`\`.
 
 `MiteSh` is:
 
@@ -40,6 +41,8 @@ Supported Operating Systems
 
 Examples
 --------
+
+> **More examples can be found in** `tests/test_mitesh.py`
 
 ### Run Hello World
 
@@ -85,6 +88,18 @@ hello
 91559 pts/5    00:00:00 python3
 103035 pts/5    00:00:00 zsh
 103036 pts/5    00:00:00 ps
+```
+
+Tests
+-----
+
+``` shell
+$ python3 -m unittest tests/test_mitesh.py 
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.038s
+
+OK
 ```
 
 Acknowledgement

@@ -10,11 +10,12 @@ Introduction
 
 ``MiteSh`` is a very simple wrapper over `subprocess <https://docs.python.org/3/library/subprocess.html>`_ :) .
 It enables us to run any POSIX shell (one-liner) in python and provides output line by line through generator.
+This is inspired by perl's backtick operator \`\`.
 
 ``MiteSh`` is:
 
 - **tiny:** The current source code has 164 lines of code (with about 35% documentation) and 114 lines of test.
-- **written in pure Python:**   MiteSh neither needs an external server  nor any dependencies from PyPI.
+- **written in pure Python:**   MiteSh neither needs an external server nor any dependencies from PyPI.
 - **works on Python 3.6+ and PyPy3:** MiteSh works on all modern versions of Python and PyPy.
 - **powerfully extensible:** You can easily extend ``MiteSh`` to more shells, currently tested with 
   - sh
@@ -40,6 +41,8 @@ Supported Operating Systems
 
 Examples
 ********
+ 
+ **More examples can be found in** ``tests/test_mitesh.py``
 
 Run Hello World
 ~~~~~~~~~~~~~~~
@@ -91,6 +94,19 @@ Using Different Shell
     91559 pts/5    00:00:00 python3
     103035 pts/5    00:00:00 zsh
     103036 pts/5    00:00:00 ps
+ 
+
+Tests
+*****
+
+.. code-block:: shell
+
+    $ python3 -m unittest tests/test_mitesh.py 
+    ...........
+    ----------------------------------------------------------------------
+    Ran 11 tests in 0.038s
+
+    OK
 
 
 Acknowledgement

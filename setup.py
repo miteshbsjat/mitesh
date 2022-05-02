@@ -21,7 +21,7 @@ setuptools.setup(
     name='mitesh',                                  # should match the package folder
     packages=['mitesh'],                            # should match the package folder
     version=__version__,                            # important for updates
-    license='MIT',                                  # should match your chosen license
+    license='Apache License 2.0',                   # should match your chosen license
     description='Modestly Integrated To Every SHell',
     long_description=long_description,              # loads your README.md
     long_description_content_type="text/x-rst",     # README.rst is of type 'x-rst'
@@ -36,9 +36,21 @@ setuptools.setup(
     classifiers=[                                   # https://pypi.org/classifiers
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
+        'Intended Audience :: System Administrators',
         'Topic :: Software Development :: Documentation',
-        'License :: OSI Approved :: MIT License',
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: System',
+        'Topic :: System :: Operating System',
+        'Topic :: System :: Shells',
+        'Topic :: System :: System Shells',
+        'Topic :: System :: Systems Administration',
+        'Topic :: Text Processing',
+        'Topic :: Utilities',
+        'License :: OSI Approved :: Apache Software License',
         'Operating System :: POSIX',
+        'Operating System :: MacOS',
+        'Operating System :: Unix',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
